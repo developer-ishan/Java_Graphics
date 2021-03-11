@@ -1,5 +1,7 @@
 package com.ishan.rain;
 
+import com.ishan.rain.graphics.Screen;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -20,6 +22,8 @@ public class Game extends Canvas implements Runnable{
     private JFrame frame;
     private boolean running = false;
 
+    private Screen screen;
+
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);//this is the view of our game
     //write data on every pixel of this image
     //get the wr9iatable rastre of the image
@@ -30,6 +34,7 @@ public class Game extends Canvas implements Runnable{
         setPreferredSize(size);
 
         frame = new JFrame();
+        screen = new Screen(width, height);
     }
 
     public synchronized void start(){
