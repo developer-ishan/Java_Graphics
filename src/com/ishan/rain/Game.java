@@ -2,6 +2,7 @@ package com.ishan.rain;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 import java.io.Serial;
 
 //blank input area which can be manipulated
@@ -43,8 +44,32 @@ public class Game extends Canvas implements Runnable{
     public void run() {
         //game loop
         while (running){
-            System.out.println("Running...");
+            update();//handle logic //a speed cap
+            render();//handle display no spped cap
         }
+    }
+
+    private void update() {
+
+    }
+
+    private void render() {
+        //creating buffer strategy
+        //buffer is a temporary storate space
+        //calcuate date but no use immidaetily
+        //render the image and ready to put the image on screen but store the image on buffer
+        //as prevous frame is still going on
+        //calculate the image pixel array and then popup the whole image together
+        //not display pixel by pixel we ned to see whole image together
+        //no live rendering
+        //basically create whole frasme and popup on the screen
+
+        BufferStrategy bs = getBufferStrategy(); //get the buffer strategy of the canvas
+        if(bs == null){
+            createBufferStrategy(3);
+            return;
+        }
+
     }
 
     public static void main(String[] args) {
