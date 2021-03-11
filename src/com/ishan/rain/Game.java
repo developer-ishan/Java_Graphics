@@ -82,12 +82,17 @@ public class Game extends Canvas implements Runnable{
             return;
         }
 
+        screen.render();
+        for (int i = 0; i < pixels.length; i++) {
+            pixels[i] = screen.pixels[i];
+        }
         //apply data to the buffers
         Graphics g = bs.getDrawGraphics();//craetes a linkk between data an actual bs
 
         //making our graphics
         g.setColor(Color.BLACK);
         g.fillRect(0,0,getWidth(), getHeight());
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 
         g.dispose(); //releases all the system resources by removing the grasphics after rendering the frame
         //buffer swapping
