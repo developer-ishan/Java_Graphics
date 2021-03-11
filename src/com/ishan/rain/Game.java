@@ -70,6 +70,16 @@ public class Game extends Canvas implements Runnable{
             return;
         }
 
+        //apply data to the buffers
+        Graphics g = bs.getDrawGraphics();//craetes a linkk between data an actual bs
+
+        //making our graphics
+        g.setColor(Color.BLACK);
+        g.fillRect(0,0,getWidth(), getHeight());
+
+        g.dispose(); //releases all the system resources by removing the grasphics after rendering the frame
+        //buffer swapping
+        bs.show(); //make the next available buffer visible
     }
 
     public static void main(String[] args) {
