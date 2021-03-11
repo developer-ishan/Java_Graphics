@@ -3,6 +3,8 @@ package com.ishan.rain;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 import java.io.Serial;
 
 //blank input area which can be manipulated
@@ -17,6 +19,11 @@ public class Game extends Canvas implements Runnable{
     private Thread thread;
     private JFrame frame;
     private boolean running = false;
+
+    private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);//this is the view of our game
+    //write data on every pixel of this image
+    //get the wr9iatable rastre of the image
+    private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
     public  Game(){
         Dimension size = new Dimension(width*scale, height* scale);
