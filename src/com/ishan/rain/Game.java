@@ -35,14 +35,15 @@ public class Game extends Canvas implements Runnable{
     //movement
     int horizontalOffest=0;
     int verticalOffset=0;
-    private Keyboard keyboard = new Keyboard();
+    private Keyboard keyboard;
     public  Game(){
         Dimension size = new Dimension(width*scale, height* scale);
         setPreferredSize(size);
 
         frame = new JFrame();
         screen = new Screen(width, height);
-        frame.addKeyListener(keyboard);
+        keyboard = new Keyboard();
+        this.addKeyListener(keyboard);
     }
 
     public synchronized void start(){
